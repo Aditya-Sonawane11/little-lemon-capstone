@@ -1,0 +1,81 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-10-30T00:00:00.000Z",
+  "__export_source": "little-lemon-capstone",
+  "resources": [
+    {
+      "_id": "wrk_littlelemon",
+      "_type": "workspace",
+      "name": "Little Lemon API",
+      "description": "Django REST Framework capstone API"
+    },
+    {
+      "_id": "env_littlelemon",
+      "_type": "environment",
+      "parentId": "wrk_littlelemon",
+      "name": "Base Environment",
+      "data": {"base_url": "http://127.0.0.1:8000", "token": "YOUR_TOKEN_HERE"}
+    },
+    {
+      "_id": "req_menu_list",
+      "_type": "request",
+      "parentId": "wrk_littlelemon",
+      "name": "List menu items",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/menu/items/",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_menu_create",
+      "_type": "request",
+      "parentId": "wrk_littlelemon",
+      "name": "Create menu item (auth)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/menu/items/",
+      "headers": [{"name": "Authorization", "value": "Token {{ _.token }}"}, {"name": "Content-Type", "value": "application/json"}],
+      "body": {"mimeType": "application/json", "text": "{\n  \"title\": \"Lemon dessert\",\n  \"price\": \"8.50\",\n  \"inventory\": 15,\n  \"description\": \"A citrus dessert\",\n  \"category\": \"Dessert\"\n}"}
+    },
+    {
+      "_id": "req_register",
+      "_type": "request",
+      "parentId": "wrk_littlelemon",
+      "name": "Register user",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/registration/",
+      "headers": [{"name": "Content-Type", "value": "application/json"}],
+      "body": {"mimeType": "application/json", "text": "{\n  \"username\": \"lemon_guest\",\n  \"email\": \"guest@example.com\",\n  \"password\": \"StrongPass123!\"\n}"}
+    },
+    {
+      "_id": "req_login",
+      "_type": "request",
+      "parentId": "wrk_littlelemon",
+      "name": "Get auth token",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/token/login/",
+      "headers": [{"name": "Content-Type", "value": "application/json"}],
+      "body": {"mimeType": "application/json", "text": "{\n  \"username\": \"lemon_guest\",\n  \"password\": \"StrongPass123!\"\n}"}
+    },
+    {
+      "_id": "req_booking_list",
+      "_type": "request",
+      "parentId": "wrk_littlelemon",
+      "name": "List my bookings (auth)",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/booking/tables/",
+      "headers": [{"name": "Authorization", "value": "Token {{ _.token }}"}],
+      "body": {}
+    },
+    {
+      "_id": "req_booking_create",
+      "_type": "request",
+      "parentId": "wrk_littlelemon",
+      "name": "Create table booking (auth)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/booking/tables/",
+      "headers": [{"name": "Authorization", "value": "Token {{ _.token }}"}, {"name": "Content-Type", "value": "application/json"}],
+      "body": {"mimeType": "application/json", "text": "{\n  \"name\": \"Alex\",\n  \"no_of_guests\": 2,\n  \"booking_date\": \"2026-11-15T19:00:00+05:30\"\n}"}
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Little Lemon | Restaurant API</title>
+  <link rel="stylesheet" href="{% static 'restaurant/site.css' %}">
+</head>
+<body>
+  <header class="hero">
+    <nav><span class="brand">LITTLE LEMON</span><a href="/admin/">Staff admin</a></nav>
+    <main>
+      <p class="eyebrow">FRESH • MEDITERRANEAN • LOCAL</p>
+      <h1>A little zest<br>goes a long way.</h1>
+      <p>Welcome to Little Lemon. Explore our menu and reserve a table through our REST API.</p>
+      <a class="cta" href="/api/menu/items/">Explore the menu API</a>
+    </main>
+  </header>
+  <section class="content">
+    <h2>API quick links</h2>
+    <div class="links">
+      <a href="/api/menu/items/"><strong>Menu</strong><span>/api/menu/items/</span></a>
+      <a href="/api/booking/tables/"><strong>Table bookings</strong><span>/api/booking/tables/</span></a>
+      <a href="/api/registration/"><strong>Registration</strong><span>/api/registration/</span></a>
+      <a href="/api/token/login/"><strong>Token login</strong><span>/api/token/login/</span></a>
+    </div>
+  </section>
+  <footer>Little Lemon Restaurant · Django REST Framework capstone</footer>
+</body>
+</html>
